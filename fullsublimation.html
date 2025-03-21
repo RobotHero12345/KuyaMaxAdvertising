@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mark Joseph L. Solomon">
+    <meta name="description" content="Get high-quality full sublimation prints on shirts, jerseys, and uniforms at Kuya Max Advertising. Customize your designs for long-lasting, vibrant prints. Order and get yours now!">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Full Sublimation</title>
+</head>
+
+<body>
+    <div class="container">
+<form name="orders" action="/thank-you.html" method="POST" data-netlify="true" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="orders">        <input type="hidden" name="product_type" value="Full Sublimation">
+            <h1 class="h13">Order Full Sublimation</h1>
+            <label><i class="fa fa-user"></i>Full Name:</label>
+            <input type="text" name="fullname" required>
+            
+            <label><i class="fa fa-envelope"></i>Email:</label>
+            <input type="email" name="email" required>
+            <label for="password"><i class="fa fa-lock"></i>Password:</label>
+<input type="password" id="password" name="password" required><br>
+            
+            <label><i class="fa fa-phone"></i>Phone Number:</label>
+            <input type="text" name="phone" required>
+            
+            <label for="request"><i class="fa fa-pencil-alt"></i>Custom Order Request:</label>
+            <textarea id="request" name="request"></textarea><br>
+            
+            <label for="quantity"><i class="fas fa-boxes"></i>Quantity:</label>
+            <select name="quantity" id="quantity" required onchange="updateTotal()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+            
+            <div class="form-group">
+                <label for="delivery"><i class="fa fa-truck"></i> Do you want delivery?</label>
+                <select id="delivery" name="delivery" onchange="toggleAddressField(); updateDeliveryFee();">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="address"><i class="fa fa-map-marker-alt"></i> Address (required for delivery):</label>
+                <input type="text" id="address" name="address" placeholder="Enter your delivery address" disabled required>
+                <span id="address-message" style="color: red; display: none;">Please provide your address if you want the order delivered.</span>
+            </div>
+            
+            <div class="form-group" id="distance-group" style="display: none;">
+                <label for="delivery-distance"><i class="fa fa-road"></i> Delivery Distance from Kuya Max Advertising (km) [Computation Only]:</label>
+                <input type="number" id="delivery-distance" name="delivery-distance" placeholder="Enter distance in km" min="0" step="0.1" onchange="updateDeliveryFee()">
+                <span class="note">Not Required</span>
+            </div>
+            
+            <div id="delivery-fee" style="display: none;">
+                <p><strong>Delivery Fee:</strong> <span id="fee-amount">&#8369;0.00</span></p>
+                <p>1km = &#8369;20</p>
+            </div>
+
+            <div>
+                <p><strong>Total Price:</strong> <span id="total-price">&#8369;200.00</span></p>
+            </div>
+            
+            <div class="form-group">
+                <label for="file-upload"><i class="fa fa-file-upload"></i> Upload File:</label>
+                <input type="file" id="file-upload" name="design" accept="image/*">
+                <img id="file-preview" src="#" alt="Preview" style="display: none; max-width: 100%; margin-top: 10px; border-radius: 5px;">
+            </div><br>
+            
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+    
+    <script src="filepreview.js"></script>
+    <script src="toggleAddress.js"></script>
+    <script src="computes.js"></script>
+</body>
+</html>
